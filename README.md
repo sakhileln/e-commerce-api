@@ -57,15 +57,15 @@ Before running the application, ensure you have the following installed:
     poetry shell
     ```
 3. **Configure Environment Variables:**
-    Create a `.env` file at the project root with the following variables (adjust as needed):
-    ```bash
-    DATABASE_URL=postgresql://username:password@localhost:5432/ecommercedb
-    SECRET_KEY=your-secret-key
-    ALGORITHM=HS256
-    ACCESS_TOKEN_EXPIRE_MINUTES=30
-    ```
+    - Create a `.env` file at the project root with the following variables (adjust as needed):
+       ```bash
+       DATABASE_URL=postgresql://username:password@localhost:5432/ecommercedb
+       SECRET_KEY=your-secret-key
+       ALGORITHM=HS256
+       ACCESS_TOKEN_EXPIRE_MINUTES=30
+       ```
 4. **Database Setup:**
-    If using a local PostgreSQL instance, create a new database (e.g., `ecommercedb`). If using Docker, see the Deployment section.
+    - If using a local PostgreSQL instance, create a new database (e.g., `ecommercedb`). If using Docker, see the Deployment section.
 
 ## Usage
 1. **Run the Application:**
@@ -80,7 +80,7 @@ Before running the application, ensure you have the following installed:
         - Redoc: `http://127.0.0.1:8000/redoc`.
 
 ## API Documentation
-All endpoints are documented using the OpenAPI standard. Visit /docs or /redoc for detailed API documentation and interactive testing.
+All endpoints are documented using the OpenAPI standard. Visit `/docs` or `/redoc` for detailed API documentation and interactive testing.
 
 ## Development
 - Project Structure:
@@ -112,13 +112,13 @@ To run tests, use `pytest`:
        docker build -t ecommerce-api .
        ```
     2. Run with Docker Compose:
-    If a `docker-compose.yml` file is provided:
-       ```bash
-       docker-compose up --build
-       ```
-    This will start the FastAPI application and a PostgreSQL container.
+       - If a `docker-compose.yml` file is provided:
+          ```bash
+          docker-compose up --build
+          ```
+          This will start the FastAPI application and a PostgreSQL container.
     3. Cloud Deployment:
-    Configure your CI/CD pipeline (e.g., GitHub Actions) to build and deploy your Docker containers to your preferred cloud provider (AWS, GCP, DigitalOcean, etc.).
+       - Configure your CI/CD pipeline (e.g., GitHub Actions) to build and deploy your Docker containers to your preferred cloud provider (AWS, GCP, DigitalOcean, etc.).
 
 ## Contributing
 Contributions are welcome! If you'd like to contribute. See the [CONTRIBUTING](CONTRIBUTING.md) file for details.
