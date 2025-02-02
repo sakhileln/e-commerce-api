@@ -51,7 +51,7 @@ Before running the application, ensure you have the following installed:
     pip install --upgrade pip
     pip install -r requirements.txt
     ```
- **Or using [Poetry](https://python-poetry.org/):**
+ - **Or using [Poetry](https://python-poetry.org/):**
     ```bash
     poetry install
     poetry shell
@@ -75,7 +75,7 @@ Before running the application, ensure you have the following installed:
     ```
     This will start the server on `http://127.0.0.1:8000`.
 2. **Access API Documentation:**
-    FastAPI automatically generates interactive API documentation at:
+    - FastAPI automatically generates interactive API documentation at:
         - Swagger UI: `http://127.0.0.1:8000/docs`.
         - Redoc: `http://127.0.0.1:8000/redoc`.
 
@@ -108,14 +108,14 @@ To run tests, use `pytest`:
 ## Deployment
 - **Docker Deployment**
     1. Build the Docker Image:
-    ```bash
-    docker build -t ecommerce-api .
-    ```
+       ```bash
+       docker build -t ecommerce-api .
+       ```
     2. Run with Docker Compose:
     If a `docker-compose.yml` file is provided:
-    ```bash
-    docker-compose up --build
-    ```
+       ```bash
+       docker-compose up --build
+       ```
     This will start the FastAPI application and a PostgreSQL container.
     3. Cloud Deployment:
     Configure your CI/CD pipeline (e.g., GitHub Actions) to build and deploy your Docker containers to your preferred cloud provider (AWS, GCP, DigitalOcean, etc.).
