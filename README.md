@@ -120,6 +120,8 @@ To run tests, use `pytest`:
     3. Cloud Deployment:
        - Configure your CI/CD pipeline (e.g., GitHub Actions) to build and deploy your Docker containers to your preferred cloud provider (AWS, GCP, DigitalOcean, etc.).
 
+## Testing
+
 ## Contributing
 Contributions are welcome! If you'd like to contribute. See the [CONTRIBUTING](CONTRIBUTING.md) file for details.
 1. Fork the repository.
