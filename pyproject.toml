@@ -1,0 +1,19 @@
+[project]
+name = "e-commerce-api"
+version = "0.1.0"
+description = "A RESTful API for an e-commerce platform."
+authors = [
+    {name = "Sakhile L. Ndlazi",email = "sakhilelindah@gmail.com"}
+]
+license = {text = "GNU GPL v3.0"}
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "fastapi (>=0.115.8,<0.116.0)",
+    "uvicorn (>=0.34.0,<0.35.0)"
+]
+
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
