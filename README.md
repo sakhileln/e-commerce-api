@@ -53,8 +53,7 @@ Before running the application, ensure you have the following installed:
     ```
  - **Or using [Poetry](https://python-poetry.org/):**
     ```bash
-    poetry install
-    poetry shell
+    poetry install --no-root
     ```
 3. **Configure Environment Variables:**
     - Create a `.env` file at the project root with the following variables (adjust as needed):
