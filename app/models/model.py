@@ -84,7 +84,9 @@ product_1 = Product(
 )
 
 
-engine = create_engine("postgresql://sakhi:moon@localhost:5432/e-commerce")
+# engine = create_engine("postgresql://sakhi:moon@localhost:5432/ecommerce")
+engine = create_engine("sqlite:///ecommerce.db", echo=True)
+print("Creating database...")
 SQLModel.metadata.create_all(bind=engine)
 
 with Session(engine) as session:
