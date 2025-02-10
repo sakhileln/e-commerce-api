@@ -8,6 +8,7 @@ import psycopg2
 class Users(SQLModel, table=True):
     id : Optional[int] = Field(default=None, primary_key=True)
     email: str = Field(index=True, nullable=False, unique=True)
+    username : Optional[str] = Field(default=None, nullable=True)
     phone: str = Field(nullable=False, unique=True)
     address: str = Field(nullable=False)
     password_hash: str = Field(nullable=False)
