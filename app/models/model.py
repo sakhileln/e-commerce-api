@@ -49,12 +49,21 @@ class Reviews(SQLModel, table=True):
     created_at: datetime = Field(default_factory=datetime.now)
     updated_at: datetime = Field(default_factory=datetime.now)
 
-
+class Orders(SQLModel, table=True):
+    id : Optional[int] = Field(default=None, primary_key=True)
+    user_id: int = Field(foreign_key="users.id")
+    order_date : datetime = Field(default_factory=datetime.now)
+    status : str = Field(nullable=False)
+    total: float = Field(nullable=False)
+    shipping_address : str = Field(nullable=False)
+    created_at: datetime = Field(default_factory=datetime.now)
+    updated_at: datetime = Field(default_factory=datetime.now)
 
 class Category(SQLModel, table=True):
     id : Optional[int] = Field(default=None, primary_key=True)
     name: str = Field(nullable=False)
-    description: str
+    description: str = Field(nullable=True)
+    parent_id: int = Field(foreign_key="category.parent_id")
 
 user_1 = Users(
     email="sakhi@venus.io",
