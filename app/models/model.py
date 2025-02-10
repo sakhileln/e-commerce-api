@@ -65,6 +65,24 @@ class Category(SQLModel, table=True):
     description: str = Field(nullable=True)
     parent_id: int = Field(foreign_key="category.parent_id")
 
+class Shipping(SQLModel, table=True):
+    id : Optional[int] = Field(default=None, primary_key=True)
+    order_id : int = Field(foreign_key="orders.id", unique=True)
+    shipping_method : str = Field(nullable=False)
+    tracking_number: str = Field(nullable=False)
+    shipping_status : str = Field(nullable=False)
+    estimate_delivery : str = Field(nullable=False)
+    shipped_date: datetime = Field(default_factory=datetime.now)
+
+class Payment(SQLModel, table=True):
+    id : Optional[int] = Field(default=None, primary_key=True)
+    order_id : int = Field(foreign_key="orders.id")
+    payment_method : str = Field(nullable=False)
+    payment_status : str = Field(nullable=False)
+    transaction_id : int = Field(foreign_key="payment.transaction_id")
+    amount : float = Field(nullable=False)
+    payment_date : datetime = Field(default_factory=datetime.now)
+
 user_1 = Users(
     email="sakhi@venus.io",
     phone="34556631",
