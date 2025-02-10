@@ -1,6 +1,5 @@
 from datetime import datetime
 from typing import Optional
-from unicodedata import category
 
 from sqlmodel import Field, SQLModel, create_engine, Session
 import psycopg2
@@ -82,6 +81,14 @@ class Payment(SQLModel, table=True):
     transaction_id : int = Field(foreign_key="payment.transaction_id")
     amount : float = Field(nullable=False)
     payment_date : datetime = Field(default_factory=datetime.now)
+
+class OrderItem(SQLModel, table=True):
+    id : Optional[int] = Field(default=None, primary_key=True)
+    order_id : int = Field(foreign_key="orders.id")
+    product_id : int = Field(foreign_key="product.id")
+    quantity: int = Field(default=1)
+    price_at_order : int = Field(default=1)
+    subtotal: float = Field(nullable=False)
 
 user_1 = Users(
     email="sakhi@venus.io",
