@@ -40,6 +40,17 @@ class Product(SQLModel, table=True):
     created_at: datetime = Field(default_factory=datetime.now)
     updated_at: datetime = Field(default_factory=datetime.now)
 
+class Reviews(SQLModel, table=True):
+    id : Optional[int] = Field(default=None, primary_key=True)
+    user_id : int = Field(foreign_key="users.id")
+    product_id : int = Field(foreign_key="product.id")
+    rating : int = Field(default=1)
+    comment : str = Field(nullable=True)
+    created_at: datetime = Field(default_factory=datetime.now)
+    updated_at: datetime = Field(default_factory=datetime.now)
+
+
+
 class Category(SQLModel, table=True):
     id : Optional[int] = Field(default=None, primary_key=True)
     name: str = Field(nullable=False)
