@@ -93,6 +93,7 @@ class OrderItem(SQLModel, table=True):
 
 user_1 = Users(
     email="sakhi@venus.io",
+    username="sakhi",
     phone="34556631",
     address="1 Hyperloop Drive",
     password_hash="PajshdfqB@$!@bsd51",
@@ -102,6 +103,7 @@ user_1 = Users(
 )
 user_2 = Users(
     email="jane@example.com",
+    username="jn",
     phone="555678631",
     address="33 Ndlazi Drive",
     password_hash="hgd23#@fhFAblk?df",
@@ -117,7 +119,8 @@ cart_item_2 = CartItem(cart_id=1, product_id=2, quantity=3)
 
 category_1 = Category(
     name="Satellite",
-    description="Satellites are the smallest and most basic Earth satellites"
+    description="Satellites are the smallest and most basic Earth satellites",
+    parent_id=1
 )
 
 product_1 = Product(
