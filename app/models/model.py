@@ -92,50 +92,6 @@ class OrderItem(SQLModel, table=True):
     price_at_order : int = Field(default=1)
     subtotal: float = Field(nullable=False)
 
-user_1 = Users(
-    email="sakhi@venus.io",
-    username="sakhi",
-    phone="34556631",
-    address="1 Hyperloop Drive",
-    password_hash="PajshdfqB@$!@bsd51",
-    first_name="Sakhile",
-    last_name="Ndlazi",
-    role="admin"
-)
-user_2 = Users(
-    email="jane@example.com",
-    username="jn",
-    phone="555678631",
-    address="33 Ndlazi Drive",
-    password_hash="hgd23#@fhFAblk?df",
-    first_name="Jane",
-    last_name="Doe",
-    role="customer"
-)
-
-cart_1 = Cart(user_id=1)
-
-cart_item_1 = CartItem(cart_id=1, product_id=1, quantity=2)
-cart_item_2 = CartItem(cart_id=1, product_id=2, quantity=3)
-
-category_1 = Category(
-    name="Satellite",
-    description="Satellites are the smallest and most basic Earth satellites",
-    parent_id=1
-)
-
-product_1 = Product(
-    name="Moon",
-    description="The Earth's only natural satellite",
-    price=100.0,
-    stock=2,
-    category=1,
-    image_url="https://images.unsplash.com/photo-1543900694-133f37abaaa5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80"
-)
-
-
-# engine = create_engine("sqlite:///ecommerce.db", echo=True)
-
 DATABASE_URL = "postgresql://postgres:password@localhost:5432/ecommercedb"
 engine = create_engine(DATABASE_URL, echo=True)
 
@@ -143,13 +99,3 @@ print("Creating database tables...")
 SQLModel.metadata.create_all(bind=engine)
 print("Tables created successfully!")
 
-
-# with Session(engine) as session:
-#     session.add(user_1)
-#     session.add(user_2)
-#     session.add(cart_1)
-#     session.add(cart_item_1)
-#     session.add(cart_item_2)
-#     session.add(category_1)
-#     session.add(product_1)
-#     session.commit()
