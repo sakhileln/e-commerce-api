@@ -35,7 +35,8 @@ class Product(SQLModel, table=True):
     description: str
     price: float = Field(nullable=False)
     stock: int = Field(nullable=False)
-    category: str = Field(foreign_key="category.id")
+    # Change category type to int to match Category.id
+    category: int = Field(foreign_key="category.id")
     image_url: str
     created_at: datetime = Field(default_factory=datetime.now)
     updated_at: datetime = Field(default_factory=datetime.now)
@@ -63,7 +64,7 @@ class Category(SQLModel, table=True):
     id : Optional[int] = Field(default=None, primary_key=True)
     name: str = Field(nullable=False)
     description: str = Field(nullable=True)
-    parent_id: int = Field(foreign_key="category.parent_id")
+    parent_id: Optional[int] = Field(default=None, foreign_key="category.id")
 
 class Shipping(SQLModel, table=True):
     id : Optional[int] = Field(default=None, primary_key=True)
@@ -79,7 +80,7 @@ class Payment(SQLModel, table=True):
     order_id : int = Field(foreign_key="orders.id")
     payment_method : str = Field(nullable=False)
     payment_status : str = Field(nullable=False)
-    transaction_id : int = Field(foreign_key="payment.transaction_id")
+    transaction_id : int = Field(nullable=False, unique=True)
     amount : float = Field(nullable=False)
     payment_date : datetime = Field(default_factory=datetime.now)
 
@@ -133,17 +134,22 @@ product_1 = Product(
 )
 
 
-# engine = create_engine("postgresql://sakhi:moon@localhost:5432/ecommerce")
-engine = create_engine("sqlite:///ecommerce.db", echo=True)
-print("Creating database...")
-SQLModel.metadata.create_all(bind=engine)
+# engine = create_engine("sqlite:///ecommerce.db", echo=True)
 
-with Session(engine) as session:
-    session.add(user_1)
-    session.add(user_2)
-    session.add(cart_1)
-    session.add(cart_item_1)
-    session.add(cart_item_2)
-    session.add(category_1)
-    session.add(product_1)
-    session.commit()
+DATABASE_URL = "postgresql://postgres:password@localhost:5432/ecommercedb"
+engine = create_engine(DATABASE_URL, echo=True)
+
+print("Creating database tables...")
+SQLModel.metadata.create_all(bind=engine)
+print("Tables created successfully!")
+
+
+# with Session(engine) as session:
+#     session.add(user_1)
+#     session.add(user_2)
+#     session.add(cart_1)
+#     session.add(cart_item_1)
+#     session.add(cart_item_2)
+#     session.add(category_1)
+#     session.add(product_1)
+#     session.commit()
