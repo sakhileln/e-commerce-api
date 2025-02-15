@@ -20,27 +20,35 @@ async def get_order(id: int, session: Session = Depends(get_session)):
         raise HTTPException(status_code=404, detail="Order not found")
     return order
 
+
 @router.put("/orders/{id}", response_model=OrderUpdate)
 async def update_order(
+        id: int,  # Order ID is now required
         status: str,
         total: float,
         session: Session = Depends(get_session),
 ):
-    order = session.query(Orders).filter(Orders.status == status).first()
+    order = session.query(Orders).filter(Orders.id == id).first()
     if not order:
         raise HTTPException(status_code=404, detail="Order not found")
+
     order.total = total
     order.status = status
     session.commit()
+    session.refresh(order)
     return order
 
-@router.put("/orders", response_model=OrderCreate)
+
+@router.post("/orders", response_model=OrderCreate)  # Should be `POST`
 async def create_order(
+        user_id: int,
         status: str,
         total: float,
+        shipping_address: str,
         session: Session = Depends(get_session),
 ):
-    order = Orders(status=status, total=total)
+    order = Orders(user_id=user_id, status=status, total=total, shipping_address=shipping_address)
     session.add(order)
     session.commit()
+    session.refresh(order)
     return order
