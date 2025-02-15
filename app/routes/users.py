@@ -9,9 +9,22 @@ from sqlmodel import Session, select
 
 router = APIRouter()
 
-@router.post("/register", response_model=UserRead)
+@router.post(
+    "/register",
+    response_model=UserRead,
+    summary="Register a new user",
+    description="Creates a new user and stores hashed password in the database.",)
 async def register_user(user: UserCreate, db: Session = Depends(get_session)):
-    # Hash the password
+    """
+    Register a new user.
+
+    - **email**: Email of the user (unique)
+    - **username**: Chosen username
+    - **phone**: Phone number (unique)
+    - **address**: User's address
+    - **password**: Plain text password (will be hashed)
+    - **type**: Role of the user (e.g., admin, customer)
+    """
     hashed_password = get_password_hash(user.password)
 
     db_user = Users(
