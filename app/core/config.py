@@ -1,12 +1,14 @@
-from pydantic import BaseSettings
+from pydantic_settings import BaseSettings
 
 
 class Settings(BaseSettings):
-    database_uri: str
+    database_url: str
     secret_key: str
-    environment: str = "development"
+    algorithm: str
+    access_token_expire_minutes: int
 
     class Config:
         env_file = ".env"
+        extra = "allow"
 
 settings = Settings()
