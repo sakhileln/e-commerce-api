@@ -1,9 +1,13 @@
-from distlib import database
+from databases import Database
 from fastapi import FastAPI
 
 from app.routes import users, products, orders
+from app.core.config import settings
 
 app = FastAPI(title="E-Commerce API", version="0.1.1")
+
+# Initialize database connection using the correct URL
+database = Database(settings.database_url)
 
 # Include routers from the routes folder
 app.include_router(users.router, prefix="/users", tags=["Users"])
@@ -20,7 +24,7 @@ async def startup():
 @app.on_event("shutdown")
 async def shutdown():
     # clean up resources
-    ...
+    await database.disconnect()
 
 
 if __name__ == "__main__":
