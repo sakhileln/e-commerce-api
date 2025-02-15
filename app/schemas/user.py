@@ -8,8 +8,12 @@ class UserBase(BaseModel):
     first_name: str
     last_name: str
 
-class UserCreate(UserBase):
+class UserCreate(BaseModel):
+    username: str
+    phone: str
+    address: str
     password: str
+    type: str
 
 class UserRead(UserBase):
     id: int
