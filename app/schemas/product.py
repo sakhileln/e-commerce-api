@@ -1,15 +1,14 @@
 from datetime import datetime
 from typing import Optional
-
 from pydantic import BaseModel
 
-class Product(BaseModel):
-    id: Optional[int] = None
-
-class ProductCreate(BaseModel):
+class ProductBase(BaseModel):
     name: str
     description: str
     price: float
+
+class ProductCreate(ProductBase):
+    pass
 
 class ProductUpdate(BaseModel):
     name: Optional[str] = None
@@ -19,11 +18,8 @@ class ProductUpdate(BaseModel):
     class Config:
         orm_mode = True
 
-class ProductRead(BaseModel):
+class ProductRead(ProductBase):
     id: Optional[int] = None
-    name: str
-    description: str
-    price: float
 
     class Config:
         orm_mode = True
