@@ -8,7 +8,7 @@ class UserBase(BaseModel):
     first_name: str
     last_name: str
 
-class UserCreate(BaseModel):
+class UserCreate(UserBase):
     username: str
     phone: str
     address: str
