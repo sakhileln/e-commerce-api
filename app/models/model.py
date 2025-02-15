@@ -92,10 +92,10 @@ class OrderItem(SQLModel, table=True):
     price_at_order : int = Field(default=1)
     subtotal: float = Field(nullable=False)
 
-DATABASE_URL = "postgresql://postgres:password@localhost:5432/ecommercedb"
-engine = create_engine(DATABASE_URL, echo=True)
-
-print("Creating database tables...")
-SQLModel.metadata.create_all(bind=engine)
-print("Tables created successfully!")
+# DATABASE_URL = "postgresql://postgres:password@localhost:5432/ecommercedb"
+# engine = create_engine(DATABASE_URL, echo=True)
+#
+# print("Creating database tables...")
+# SQLModel.metadata.create_all(bind=engine)
+# print("Tables created successfully!")
 
