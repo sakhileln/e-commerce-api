@@ -14,7 +14,7 @@ router = APIRouter()
     response_model=UserRead,
     summary="Register a new user",
     description="Creates a new user and stores hashed password in the database.",)
-async def register_user(user: UserCreate, db: Session = Depends(get_session)):
+async def register_user(user: UserCreate, db: Session = Depends(get_session)) -> UserRead:
     """
     Register a new user.
 
@@ -43,7 +43,16 @@ async def register_user(user: UserCreate, db: Session = Depends(get_session)):
     db.refresh(db_user)  # Ensure the user is saved correctly
     return db_user
 
-@router.get("/users", response_model=List[UserRead])
-async def get_users(session: Session = Depends(get_session)):
+@router.get(
+    "/users",
+    response_model=List[UserRead],
+    summary="List all users",
+)
+async def get_users(session: Session = Depends(get_session)) -> List[UserRead]:
+    """
+    List all users in the database.
+    :param session:
+    :return: List of users
+    """
     users = session.exec(select(Users)).all()
     return users
