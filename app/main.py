@@ -1,5 +1,3 @@
-from http.cookiejar import debug
-
 from distlib import database
 from fastapi import FastAPI
 
