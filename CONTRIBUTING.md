@@ -1,5 +1,4 @@
 # Contributing Guidelines
-
 *Pull requests, bug reports, and all other forms of contribution are welcomed and highly encouraged!* :octocat:
 
 ### Contents
@@ -31,7 +30,6 @@ Before [creating an issue](https://help.github.com/en/github/managing-your-work-
 Review our [Security Policy](https://github.com/space-nomad/.github/blob/main/SECURITY.md). **Do not** file a public issue for security vulnerabilities.
 
 ### :beetle: Bug Reports and Other Issues
-
 A great way to contribute to the project is to send a detailed issue when you encounter a problem. We always appreciate a well-written, thorough bug report. :v:
 
 In short, since you are most likely a developer, **provide a ticket that you would like to receive**.
