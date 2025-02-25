@@ -21,11 +21,9 @@
 Please review our [Code of Conduct](https://github.com/sakhileln/space-nomad/blob/main/CODE_OF_CONDUCT.md). It is in effect at all times. We expect it to be honored by everyone who contributes to this project. Acting like an asshole will not be tolerated.
 
 ## :bulb: Asking Questions
-
 See our [Support Guide](https://github.com/sakhileln/space-nomad/blob/main/SUPPORT.md). In short, GitHub issues are not the appropriate place to debug your specific project, but should be reserved for filing bugs and feature requests.
 
 ## :inbox_tray: Opening an Issue
-
 Before [creating an issue](https://help.github.com/en/github/managing-your-work-on-github/creating-an-issue), check if you are using the latest version of the project. If you are not up-to-date, see if updating fixes your issue first.
 
 ### :lock: Reporting Security Issues
