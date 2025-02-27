@@ -1,4 +1,5 @@
 # Contributing Guidelines
+
 *Pull requests, bug reports, and all other forms of contribution are welcomed and highly encouraged!* :octocat:
 
 ### Contents
@@ -56,7 +57,6 @@ Feature requests are welcome! While we will consider all requests, we cannot gua
 You can triage issues which may include reproducing bug reports or asking for additional information, such as version numbers or reproduction instructions. Any help you can provide to quickly resolve an issue is very much appreciated!
 
 ## :repeat: Submitting Pull Requests
-
 We **love** pull requests! Before [forking the repo](https://help.github.com/en/github/getting-started-with-github/fork-a-repo) and [creating a pull request](https://help.github.com/en/github/collaborating-with-issues-and-pull-requests/proposing-changes-to-your-work-with-pull-requests) for non-trivial changes, it is usually best to first open an issue to discuss the changes, or discuss your intended approach for solving the problem in the comments for an existing issue.
 
 For most contributions, after your first pull request is accepted and merged, you will be [invited to the project](https://help.github.com/en/github/setting-up-and-managing-your-github-user-account/inviting-collaborators-to-a-personal-repository) and given **push access**. :tada:
