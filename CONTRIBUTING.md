@@ -90,7 +90,6 @@ For most contributions, after your first pull request is accepted and merged, yo
 - Use spaces, not tabs.
 
 ## :memo: Writing Commit Messages
-
 Please [write a great commit message](https://chris.beams.io/posts/git-commit/).
 
 1. Separate subject from body with a blank line
@@ -136,7 +135,6 @@ See also: #456, #789
 ```
 
 ## :white_check_mark: Code Review
-
 - **Review the code, not the author.** Look for and suggest improvements without disparaging or insulting the author. Provide actionable feedback and explain your reasoning.
 
 - **You are not your code.** When your code is critiqued, questioned, or constructively criticized, remember that you are not your code. Do not take code review personally.
@@ -146,7 +144,6 @@ See also: #456, #789
 - Kindly note any violations to the guidelines specified in this document. 
 
 ## :nail_care: Coding Style
-
 Consistency is the most important. Following the existing style, formatting, and naming conventions of the file you are modifying and of the overall project. Failure to do so will result in a prolonged review process that has to focus on updating the superficial aspects of your code, rather than improving its functionality and performance.
 
 For example, if all private properties are prefixed with an underscore `_`, then new ones you add should be prefixed in the same way. Or, if methods are named using camelcase, like `thisIsMyNewMethod`, then do not diverge from that by writing `this_is_my_new_method`. You get the idea. If in doubt, please ask or search the codebase for something similar.
@@ -154,7 +151,6 @@ For example, if all private properties are prefixed with an underscore `_`, then
 When possible, style and format will be enforced with a linter.
 
 ## :medal_sports: Certificate of Origin
-
 *Developer's Certificate of Origin 1.1*
 
 By making a contribution to this project, I certify that:
