@@ -21,7 +21,8 @@ dependencies = [
     "databases (>=0.9.0,<0.10.0)",
     "asyncpg (>=0.30.0,<0.31.0)",
     "python-dotenv (>=1.0.1,<2.0.0)",
-    "dotenv (>=0.9.9,<0.10.0)"
+    "dotenv (>=0.9.9,<0.10.0)",
+    "python-jose (>=3.4.0,<4.0.0)"
 ]
 
 
