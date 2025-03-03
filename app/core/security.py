@@ -33,7 +33,7 @@ def create_access_token(data:dict, expires_delta:timedelta | None = None) -> str
 def verify_access_token(token: str) -> None:
     """Decodes and verifies the JWT token."""
     try:
-        payload = jwt.decode(token, settings.secret, algorithms=settings.algorithm)
+        payload = jwt.decode(token, settings.secret_key, algorithms=settings.algorithm)
         username: str = payload.get("sub")
         if username is None:
             raise HTTPException(
