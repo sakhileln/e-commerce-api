@@ -7,7 +7,7 @@ from fastapi.security import OAuth2PasswordRequestForm, OAuth2PasswordBearer
 from app.schemas.user import UserCreate, UserRead, Token
 from app.models.model import Users
 from app.db.session import get_session
-from app.core.security import get_password_hash, verify_password, create_access_token
+from app.core.security import get_password_hash, verify_password, create_access_token, verify_access_token
 from sqlmodel import Session, select
 
 router = APIRouter()
@@ -69,7 +69,8 @@ async def login_for_access_token(form_data: OAuth2PasswordRequestForm = Depends(
 
 @router.get("/users/me", response_model=UserRead)
 async def read_users_me(token: str = Depends(oauth2_scheme), db: Session = Depends(get_session())):
-    user = db.query(Users).filter(Users.username == verify_access_token(token)).first()
+    username = verify_access_token(token)
+    user = db.query(Users).filter(Users.username == username).first()
     if not user:
         raise HTTPException(status_code=404, detail="Invalid token")
 
