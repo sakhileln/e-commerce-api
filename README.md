@@ -136,6 +136,10 @@ This project is licensed under the `GNU GPL v3.0 License`. See the [LICENSE](LIC
 
 ## Acknowledgments
 - [Database schema design 101 for relational databases](https://planetscale.com/blog/schema-design-101-relational-databases)
+- [Security - First Steps](https://fastapi.tiangolo.com/tutorial/security/first-steps/)
+- [Get Current User](https://fastapi.tiangolo.com/tutorial/security/get-current-user/)
+- [Simple OAuth2 with Password and Bearer](https://fastapi.tiangolo.com/tutorial/security/simple-oauth2/)
+- [OAuth2 with Password (and hashing), Bearer with JWT tokens](https://fastapi.tiangolo.com/tutorial/security/oauth2-jwt/)
 - 
 
 ## Contact

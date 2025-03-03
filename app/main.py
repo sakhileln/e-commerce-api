@@ -13,7 +13,7 @@ SQLModel.metadata.create_all(engine)
 # Prefix all routes with API versioning
 api_version = "/api/v1"
 # Include routers
-app.include_router(users.router, prefix=f"{api_version}/users", tags=["Users"])
+app.include_router(users.router, prefix=f"{api_version}/auth", tags=["Users"])
 app.include_router(products.router, prefix=f"{api_version}/products", tags=["Products"])
 app.include_router(orders.router, prefix=f"{api_version}/orders", tags=["Orders"])
 
