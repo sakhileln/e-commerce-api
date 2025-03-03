@@ -3,12 +3,12 @@ from typing import List
 
 from fastapi import APIRouter, HTTPException, Depends
 from fastapi.security import OAuth2PasswordRequestForm, OAuth2PasswordBearer
+from sqlmodel import Session, select
 
 from app.schemas.user import UserCreate, UserRead, Token
 from app.models.model import Users
 from app.db.session import get_session
 from app.core.security import get_password_hash, verify_password, create_access_token, verify_access_token
-from sqlmodel import Session, select
 
 router = APIRouter()
 
@@ -68,12 +68,12 @@ async def login_for_access_token(form_data: OAuth2PasswordRequestForm = Depends(
     }
 
 @router.get("/users/me", response_model=UserRead)
-async def read_users_me(token: str = Depends(oauth2_scheme), db: Session = Depends(get_session())):
+def read_users_me(token: str = Depends(oauth2_scheme), session: Session = Depends(get_session)):
     username = verify_access_token(token)
     statement = select(Users).where(Users.username == username)
-    user = db.exec(statement).first()
-    if not user:
-        raise HTTPException(status_code=404, detail="User not found")
+    user = session.exec(statement).first()
+    if user is None:
+        raise HTTPException(status_code=401, detail="User not found")
     return user
 
 
