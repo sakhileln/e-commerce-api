@@ -70,10 +70,10 @@ async def login_for_access_token(form_data: OAuth2PasswordRequestForm = Depends(
 @router.get("/users/me", response_model=UserRead)
 async def read_users_me(token: str = Depends(oauth2_scheme), db: Session = Depends(get_session())):
     username = verify_access_token(token)
-    user = db.query(Users).filter(Users.username == username).first()
+    statement = select(Users).where(Users.username == username)
+    user = db.exec(statement).first()
     if not user:
-        raise HTTPException(status_code=404, detail="Invalid token")
-
+        raise HTTPException(status_code=404, detail="User not found")
     return user
 
 
