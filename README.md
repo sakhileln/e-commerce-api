@@ -15,6 +15,7 @@ A RESTful API for an e-commerce platform built with [FastAPI](https://fastapi.ti
 - [License](#license)
 
 ## Features
+
 - **User Authentication:** Secure signup, login, and JWT-based authorization with role-based access.
 - **Product Catalog:** CRUD endpoints for managing products, categories, and media uploads.
 - **Order Processing:** Endpoints for placing orders, managing carts, and integrating with payment gateways.
