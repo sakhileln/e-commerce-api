@@ -122,7 +122,6 @@ To run tests, use `pytest`:
 ## Testing
 
 ## Contributing
-
 Contributions are welcome! If you'd like to contribute. See the [CONTRIBUTING](CONTRIBUTING.md) file for details.
 1. Fork the repository.
 2. Create a new branch for your feature/bug fix:
