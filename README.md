@@ -2,7 +2,6 @@
 A RESTful API for an e-commerce platform built with [FastAPI](https://fastapi.tiangolo.com/) and [PostgreSQL](https://www.postgresql.org/). This project provides endpoints for user authentication, product catalog management, order processing, and more.
 
 ## Table of Contents
-
 - [Features](#features)
 - [Architecture](#architecture)
 - [Prerequisites](#prerequisites)
